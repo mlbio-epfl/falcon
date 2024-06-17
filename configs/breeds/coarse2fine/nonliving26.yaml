@@ -1,0 +1,5 @@
+_BASE_: configs/breeds/coarse2fine/base.yaml
+
+DATASET:
+    NAME: "nonliving26"
+

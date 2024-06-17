@@ -1,0 +1,53 @@
+DATASET:
+    NAME: "entity13"
+    MULTIVIEW_NUM: 2
+    MULTIVIEW: True
+    RETURN_INDEX: False
+
+MODEL:
+    BACKBONE_NAME: "ResNet50"
+    PRETRAINED: 'https://dl.fbaipublicfiles.com/moco-v3/r-50-1000ep/r-50-1000ep.pth.tar'
+    PRECISION: "fp32"
+    NUM_CLASSES: None
+    HEAD_TYPE: "Linear"
+    FROZEN: False
+
+SOLVER:
+    LR_SCHEDULER:
+        NAME: "CosineAnnealingWarmRestarts"
+        RESTART_PERIOD: 30
+        ETA_MIN: 0.001
+
+    OPTIMIZER:
+        NAME: "SGD"
+        BASE_LR: 0.1
+        WEIGHT_DECAY: 0.
+        NESTEROV: False
+        MOMENTUM: 0.9
+
+    LOSS:
+        LAMBDA_1: 0.5
+        LAMBDA_2: 0.5
+        LAMBDA_3: 2.0
+        TEMP: 0.9
+
+    DISCRETE_OPTIM:
+        TIME_LIMIT: 30 # in seconds
+        BETA_REG: 0.1
+        SOLVE_EVERY: 20 # iterations
+
+    MAX_EPOCHS: 60
+    BATCH_SIZE: 1024
+    CHECKPOINT_PERIOD: 20
+    EVAL_PERIOD: 1
+    DEVICES: 2
+    SOFT_LABELS_EPOCHS: 30
+
+DATALOADER:
+    NUM_WORKERS: 3
+    PIN_MEMORY: True
+
+NEIGHBORS: None
+
+OUTPUT_DIR: None
+

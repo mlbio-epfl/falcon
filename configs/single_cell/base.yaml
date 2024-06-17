@@ -1,0 +1,61 @@
+DATASET:
+    NAME: "PBMC"
+    MULTIVIEW_NUM: 2
+    MULTIVIEW: True
+    RETURN_INDEX: False
+
+PREPROCESS:
+    NORMALIZE_TOTAL: 1e4
+    MIN_INSTANCES: 50
+
+MODEL:
+    BACKBONE_NAME: "MLP"
+    PRETRAINED: False
+    PRECISION: "fp32"
+    HIDDEN_DIM: 64
+    INPUT_DIM: 2000
+    OUTPUT_DIM: 64
+    NUM_LAYERS: 4
+    NUM_CLASSES: None
+    HEAD_TYPE: "Linear"
+    FROZEN: False
+
+SOLVER:
+    LR_SCHEDULER:
+        NAME: 'MultiStepLR'
+        GAMMA: 0.1
+        STEPS: [6, 8]
+
+    OPTIMIZER:
+        NAME: "SGD"
+        BASE_LR: 0.1
+        WEIGHT_DECAY: 0.
+        NESTEROV: False
+        MOMENTUM: 0.9
+
+    LOSS:
+        LAMBDA_1: 0.5
+        LAMBDA_2: 0.5
+        LAMBDA_3: 0.5
+        TEMP: 0.9
+
+    DISCRETE_OPTIM:
+        TIME_LIMIT: 30 # in seconds
+        BETA_REG: 0.005
+        SOLVE_EVERY: 30 # in iterations
+
+    MAX_EPOCHS: 10
+    BATCH_SIZE: 1024
+    CHECKPOINT_PERIOD: 5
+    EVAL_PERIOD: 1
+    DEVICES: 1
+    SOFT_LABELS_EPOCHS: 3
+
+DATALOADER:
+    NUM_WORKERS: 3
+    PIN_MEMORY: True
+
+NEIGHBORS: None
+
+OUTPUT_DIR: None
+

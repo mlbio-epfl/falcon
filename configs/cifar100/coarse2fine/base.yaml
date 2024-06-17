@@ -1,0 +1,54 @@
+DATASET:
+    NAME: "CIFAR100"
+    MULTIVIEW_NUM: 2
+    MULTIVIEW: True
+    RETURN_INDEX: False
+    SAMPLE_IMBALANCED: False
+
+
+MODEL:
+    BACKBONE_NAME: "ResNet18"
+    PRETRAINED: '/mlbio_scratch/grcic/mocov3-cifar100-g1474plb-ep=999.ckpt' # from sololearn repo
+    PRECISION: "fp32"
+    NUM_CLASSES: None
+    HEAD_TYPE: "Linear"
+    FROZEN: False
+
+SOLVER:
+    LR_SCHEDULER:
+        NAME: 'MultiStepLR'
+        GAMMA: 0.1
+        STEPS: [60, 80]
+
+    OPTIMIZER:
+        NAME: "SGD"
+        BASE_LR: 0.1
+        WEIGHT_DECAY: 0.
+        NESTEROV: False
+        MOMENTUM: 0.9
+    LOSS:
+        LAMBDA_1: 0.5
+        LAMBDA_2: 0.5
+        LAMBDA_3: 2.0
+        TEMP: 0.9
+
+    DISCRETE_OPTIM:
+        TIME_LIMIT: 30 # in seconds
+        BETA_REG: 0.1
+        SOLVE_EVERY: 20 # in iterations
+
+    MAX_EPOCHS: 100
+    BATCH_SIZE: 256
+    SOFT_LABELS_EPOCHS: 30
+    CHECKPOINT_PERIOD: 50
+    EVAL_PERIOD: 1
+    DEVICES: 1
+
+NEIGHBORS: None
+
+DATALOADER:
+    NUM_WORKERS: 5
+    PIN_MEMORY: True
+
+OUTPUT_DIR: None
+

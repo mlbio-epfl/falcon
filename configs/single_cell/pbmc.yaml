@@ -1,0 +1,9 @@
+_BASE_: configs/single_cell/base.yaml
+
+DATASET:
+    NAME: "PBMC"
+
+PREPROCESS:
+    NORMALIZE_TOTAL: 1e4
+
+OUTPUT_DIR: None

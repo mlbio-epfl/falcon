@@ -1,0 +1,6 @@
+_BASE_: configs/cifar100/coarse2fine/base.yaml
+
+DATASET:
+    NAME: "CIFAR100-SI"
+    SAMPLE_IMBALANCED: True
+

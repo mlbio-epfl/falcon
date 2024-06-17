@@ -1,0 +1,1 @@
+from .cifar100_coarse2fine import CIFAR100Coarse2Fine, CIFAR68Coarse2Fine

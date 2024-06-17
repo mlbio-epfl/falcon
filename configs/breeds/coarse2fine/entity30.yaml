@@ -1,0 +1,8 @@
+_BASE_: configs/breeds/coarse2fine/base.yaml
+
+DATASET:
+    NAME: "entity30"
+
+SOLVER:
+    LOSS:
+        LAMBDA_3: 3.0

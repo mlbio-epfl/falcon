@@ -1,0 +1,1 @@
+from .tiered_imagenet import TieredImagenetCoarse2Fine
