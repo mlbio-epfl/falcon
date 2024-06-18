@@ -2,7 +2,7 @@
 
 [Matej Grcić](https://matejgrcic.github.io/), [Artyom Gadetsky](http://agadetsky.github.io), [Maria Brbić](https://brbiclab.epfl.ch/team/)
 
-[`Project page`](https://brbiclab.epfl.ch/projects/falcon/)| [`arXiv`]() | [`BibTeX`](#citation)
+[`Project page`](https://brbiclab.epfl.ch/projects/falcon/)| [`arXiv`](https://arxiv.org/pdf/2406.11070v1) | [`BibTeX`](#citation)
 
 This repo contains PyTorch implementation of the FALCON method. 
 FALCON is a method that discovers fine-grained classes in coarsely labeled data without any supervision at the fine-grained level. 
