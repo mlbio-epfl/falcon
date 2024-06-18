@@ -8,7 +8,7 @@ def create_backbone_factory(cfg):
         return construct_resnet18
     elif cfg.MODEL.BACKBONE_NAME == 'ResNet50':
         return construct_resnet50
-    elif cfg.MODEL.BACKBONE_NAME == 'MDISCRETE_OPTIM':
+    elif cfg.MODEL.BACKBONE_NAME == 'MLP':
         return construct_mlp(cfg)
     else:
         raise NotImplementedError('Model not implemented: {}'.format(cfg.MODEL.BACKBONE_NAME))

@@ -4,7 +4,8 @@ from datasets.utils.wrappers import NeighborsWrapper
 
 # single cell data uses transductive setting
 def construct_single_cell_c2f_splits(cfg):
-    file = cfg.DATASET.DATAROOT.replace('.h5ad', '_preprocessed.pth')
+    assert '_preprocessed.pth' in cfg.DATASET.DATAROOT, 'Please use the preprocessed file for single cell data.'
+    file = cfg.DATASET.DATAROOT
 
     train_ds = SingleCellData(file, two_views=cfg.DATASET.MULTIVIEW)
 

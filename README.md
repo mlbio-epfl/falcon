@@ -43,6 +43,7 @@ To train FALCON, simply run one of the available scripts. For example, to train 
 **Notes:** 
 * You might need to make the script executable by running `chmod +x ./script/breeds/living17.sh`
 * The training can be resumed by proving the `--resume` flag to `main.py`.
+
 ## Evaluation
 
 To evaluate the model, run the following command with the desired config, model path, and output directory:

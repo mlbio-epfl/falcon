@@ -1,4 +1,4 @@
-_BASE_: configs/single_cell/base.yaml
+_BASE_: configs/single_cell/coarse2fine/base.yaml
 
 DATASET:
     NAME: "PBMC"

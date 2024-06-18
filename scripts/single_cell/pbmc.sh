@@ -14,7 +14,7 @@ fi
 if [ -f "$1/PBMC_neighbors.pth" ]; then
   echo "Nearest neighbors already calculated, skipping the retrieval"
 else
-  python find_neighbors.py --cfg_file configs/single_cell/coarse2fine/pbmc.yaml --override_cfg OUTPUT_DIR "$1" --output_dir "$1" --use_faiss
+  python find_neighbors.py --cfg_file configs/single_cell/coarse2fine/pbmc.yaml --override_cfg OUTPUT_DIR "$1" --output_dir "$1" --use_faiss --use_raw_input
 fi
 
 python -W ignore main.py --port 8080 --cfg_file configs/single_cell/coarse2fine/pbmc.yaml --override_cfg OUTPUT_DIR "$1/run1" NEIGHBORS "$1/PBMC_neighbors.pth"
