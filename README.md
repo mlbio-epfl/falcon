@@ -14,9 +14,9 @@ For more details please check our paper [Fine-grained Classes and How to Find Th
 
 Setup the conda environment and install the required packages by running the following commands:
 ```bash
-    conda env create -f environment.yml
-    conda activate falcon
-    ./scripts/setup.sh
+conda env create -f environment.yml
+conda activate falcon
+./scripts/setup.sh
 ```
 
 ## Data preparation
@@ -24,13 +24,13 @@ We use the standard ImageNet-1k and CIFAR100 datasets. Download the datasets and
 
 For single-cell data, we provide a download and preprocess script:
 ```bash
-    ./scripts/download_sc_data.sh /path/to/datasets_dir
+./scripts/download_sc_data.sh /path/to/datasets_dir
 ```
 Export the dataset paths:
 ```bash
-    export CIFAR100_ROOT=/PATH/TO/CIFAR100
-    export IMAGENET_ROOT=/PATH/TO/IMAGENET
-    export PBMC_ROOT=/PATH/TO/PREPROCESSED/PBMC
+export CIFAR100_ROOT=/PATH/TO/CIFAR100
+export IMAGENET_ROOT=/PATH/TO/IMAGENET
+export PBMC_ROOT=/PATH/TO/PREPROCESSED/PBMC
 ```
 
 ## Training
@@ -38,7 +38,7 @@ Export the dataset paths:
 To train FALCON, simply run one of the available scripts. For example, to train FALCON on the Living17 dataset, run:
 
 ```bash
-    ./script/breeds/living17.sh /path/to/output_dir
+./script/breeds/living17.sh /path/to/output_dir
 ```
 **Notes:** 
 * You might need to make the script executable by running `chmod +x ./script/breeds/living17.sh`
@@ -48,14 +48,15 @@ To train FALCON, simply run one of the available scripts. For example, to train 
 
 To evaluate the model, run the following command with the desired config, model path, and output directory:
 ```bash
-    python main.py \
-      --cfg_file configs/breeds/coarse2fine/living17.yaml \
-      --override_cfg OUTPUT_DIR /path_to_eval_dir \
-      --eval_only --model /path_to_model.pth
+python main.py \
+  --cfg_file configs/breeds/coarse2fine/living17.yaml \
+  --override_cfg OUTPUT_DIR /path_to_eval_dir \
+  --eval_only --model /path_to_model.pth
 
 ```
 ## Checkpoints
-Coming soon..
+FALCON checkpoints can be found [here](https://brbiclab.epfl.ch/wp-content/uploads/2024/06/falcon_checkpoints.zip).
+
 
 
 ## Citation

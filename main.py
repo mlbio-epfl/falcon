@@ -58,7 +58,7 @@ def worker(device_id, cfg):
     if cfg.EVAL_ONLY and device_id == 0:
         logger = Logger(filename=os.path.join(cfg.OUTPUT_DIR, 'eval_log.txt'))
         state_dict = torch.load(cfg.MODEL.WEIGHTS)
-        model.load_state_dict(state_dict['model'])
+        model_without_ddp.load_state_dict(state_dict['model'])
         M = state_dict['M']
         res = eval(model, val_loader)
         acc, ari = res['accuracy'], res['ari']
